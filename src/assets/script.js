@@ -1,4 +1,6 @@
 /* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
+let products = [];
+
 
 /* Create 3 or more product objects using object literal notation 
    Each product should include five properties

@@ -1,7 +1,6 @@
 /* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
 let products = [];
 
-
 /* Create 3 or more product objects using object literal notation 
    Each product should include five properties
    - name: name of product (string)
@@ -10,20 +9,42 @@ let products = [];
    - productId: unique id for the product (number)
    - image: picture of product (url string)
 */
+let cherry = {
+  name: "cherry",
+  price: 2,
+  quantity: 0,
+  productId: 1,
+  image: "src/images/cherry.jpg",
+};
 
-/* Images provided in /images folder. All images from Unsplash.com
-   - cherry.jpg by Mae Mu
-   - orange.jpg by Mae Mu
-   - strawberry.jpg by Allec Gomes
-*/
+let orange = {
+  name: "orange",
+  price: 2,
+  quantity: 0,
+  productId: 2,
+  image: "src/images/orange.jpg",
+};
+
+let strawberry = {
+  name: "strawberry",
+  price: 2,
+  quantity: 0,
+  productId: 2,
+  image: "src/images/strawberry.jpg",
+};
+
+products.push(cherry, orange, strawberry);
+console.log(products);
 
 /* Declare an empty array named cart to hold the items in the cart */
+let cart = [];
 
 /* Create a function named addProductToCart that takes in the product productId as an argument
   - addProductToCart should get the correct product based on the productId
   - addProductToCart should then increase the product's quantity
   - if the product is not already in the cart, add it to the cart
 */
+function addProductToCart(productId) {}
 
 /* Create a function named increaseQuantity that takes in the productId as an argument
   - increaseQuantity should get the correct product based on the productId
@@ -59,23 +80,22 @@ let products = [];
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
 
-
 /* The following is for running unit tests. 
    To fully complete this project, it is expected that all tests pass.
    Run the following command in terminal to run tests
    npm run test
 */
 
-module.exports = {
-   products,
-   cart,
-   addProductToCart,
-   increaseQuantity,
-   decreaseQuantity,
-   removeProductFromCart,
-   cartTotal,
-   pay, 
-   emptyCart,
-   /* Uncomment the following line if completing the currency converter bonus */
-   // currency
-}
+// module.exports = {
+//   products,
+//   cart,
+//   addProductToCart,
+//   increaseQuantity,
+//   decreaseQuantity,
+//   removeProductFromCart,
+//   cartTotal,
+//   pay,
+//   emptyCart,
+//   /* Uncomment the following line if completing the currency converter bonus */
+//   // currency
+// };

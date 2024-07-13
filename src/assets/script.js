@@ -29,12 +29,11 @@ let strawberry = {
   name: "strawberry",
   price: 2,
   quantity: 0,
-  productId: 2,
+  productId: 3,
   image: "src/images/strawberry.jpg",
 };
 
 products.push(cherry, orange, strawberry);
-console.log(products);
 
 /* Declare an empty array named cart to hold the items in the cart */
 let cart = [];
@@ -44,7 +43,17 @@ let cart = [];
   - addProductToCart should then increase the product's quantity
   - if the product is not already in the cart, add it to the cart
 */
-function addProductToCart(productId) {}
+function addProductToCart(productId) {
+  let pickedProduct = products.find(
+    (product) => product.productId === productId
+  );
+
+  pickedProduct.quantity += 1;
+
+  if (!cart.includes(pickedProduct)) {
+    cart.push(pickedProduct);
+  }
+}
 
 /* Create a function named increaseQuantity that takes in the productId as an argument
   - increaseQuantity should get the correct product based on the productId

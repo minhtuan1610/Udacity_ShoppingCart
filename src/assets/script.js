@@ -59,18 +59,33 @@ function addProductToCart(productId) {
   - increaseQuantity should get the correct product based on the productId
   - increaseQuantity should then increase the product's quantity
 */
+function increaseQuantity(productId) {
+  let increasedProduct = cart.find((p) => p.productId === productId);
+  increasedProduct.quantity += 1;
+}
 
 /* Create a function named decreaseQuantity that takes in the productId as an argument
   - decreaseQuantity should get the correct product based on the productId
   - decreaseQuantity should decrease the quantity of the product
   - if the function decreases the quantity to 0, the product is removed from the cart
 */
+function decreaseQuantity(productId) {
+  let decreasedProduct = cart.find((p) => p.productId === productId);
+  decreasedProduct.quantity -= 1;
+  if (decreasedProduct.quantity == 0) {
+    cart.splice(cart.indexOf(decreasedProduct), 1);
+  }
+}
 
 /* Create a function named removeProductFromCart that takes in the productId as an argument
   - removeProductFromCart should get the correct product based on the productId
   - removeProductFromCart should update the product quantity to 0
   - removeProductFromCart should remove the product from the cart
 */
+function removeProductFromCart(productId) {
+  let removeProduct = cart.find((p) => p.productId === productId);
+  cart.splice(cart.indexOf(removeProduct), 1);
+}
 
 /* Create a function named cartTotal that has no parameters
   - cartTotal should iterate through the cart to get the total cost of all products
@@ -95,16 +110,16 @@ function addProductToCart(productId) {
    npm run test
 */
 
-// module.exports = {
-//   products,
-//   cart,
-//   addProductToCart,
-//   increaseQuantity,
-//   decreaseQuantity,
-//   removeProductFromCart,
-//   cartTotal,
-//   pay,
-//   emptyCart,
-//   /* Uncomment the following line if completing the currency converter bonus */
-//   // currency
-// };
+module.exports = {
+  products,
+  cart,
+  addProductToCart,
+  increaseQuantity,
+  decreaseQuantity,
+  removeProductFromCart,
+  cartTotal,
+  pay,
+  emptyCart,
+  /* Uncomment the following line if completing the currency converter bonus */
+  // currency
+};

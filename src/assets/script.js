@@ -14,29 +14,30 @@ let cherry = {
   price: 2,
   quantity: 0,
   productId: 1,
-  image: "src/images/cherry.jpg",
+  image: "../images/cherry.jpg",
 };
 
 let orange = {
   name: "orange",
-  price: 2,
+  price: 3.3,
   quantity: 0,
   productId: 2,
-  image: "src/images/orange.jpg",
+  image: "../images/orange.jpg",
 };
 
 let strawberry = {
   name: "strawberry",
-  price: 2,
+  price: 1.95,
   quantity: 0,
   productId: 3,
-  image: "src/images/strawberry.jpg",
+  image: "../images/strawberry.jpg",
 };
 
 products.push(cherry, orange, strawberry);
 
 /* Declare an empty array named cart to hold the items in the cart */
 let cart = [];
+let totalPaid = 0;
 
 /* Create a function named addProductToCart that takes in the product productId as an argument
   - addProductToCart should get the correct product based on the productId
@@ -92,8 +93,19 @@ function removeProductFromCart(productId) {
   - cartTotal should return the total cost of the products in the cart
   Hint: price and quantity can be used to determine total cost
 */
+function cartTotal() {
+  let grandTotal = 0;
+  cart.forEach((e) => {
+    grandTotal += e.price * e.quantity;
+  });
+  return (totalPaid = grandTotal);
+}
 
 /* Create a function called emptyCart that empties the products from the cart */
+function emptyCart() {
+  cart.splice(0);
+  totalPaid = 0;
+}
 
 /* Create a function named pay that takes in an amount as an argument
   - amount is the money paid by customer
@@ -101,6 +113,10 @@ function removeProductFromCart(productId) {
   - pay will return a positive number if money should be returned to customer
   Hint: cartTotal function gives us cost of all the products in the cart  
 */
+function pay(receivedCash) {
+  let remainingAmount = receivedCash - cartTotal();
+  return remainingAmount;
+}
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
 

@@ -42,7 +42,7 @@ let totalPaid = 0;
   - if the product is not already in the cart, add it to the cart
 */
 function addProductToCart(productId) {
-  let pickedProduct = products.find((e) => e.productId === productId);
+  let pickedProduct = getProductById(productId);
 
   if (!cart.includes(pickedProduct)) {
     pickedProduct.quantity = 1;
@@ -50,6 +50,10 @@ function addProductToCart(productId) {
   } else {
     pickedProduct.quantity += 1;
   }
+}
+
+function getProductById(productId) {
+  return products.find((p) => p.productId === productId);
 }
 
 /* Create a function named increaseQuantity that takes in the productId as an argument
@@ -91,6 +95,8 @@ function removeProductFromCart(productId) {
   - cartTotal should iterate through the cart to get the total cost of all products
   - cartTotal should return the total cost of the products in the cart
   Hint: price and quantity can be used to determine total cost
+  @param no parameter
+  @return the amount that the customer must pay
 */
 function cartTotal() {
   let grandTotal = 0;
@@ -117,7 +123,11 @@ function emptyCart() {
 */
 function pay(receivedCash) {
   totalPaid += receivedCash;
-  let remainingAmount = totalPaid - cartTotal();
+  const remainingAmount = totalPaid - cartTotal();
+  if (remainingAmount >= 0) {
+    emptyCart();
+    totalPaid = 0;
+  }
   return remainingAmount;
 }
 
